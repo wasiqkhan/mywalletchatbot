@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>Hi</pattern>
+    <template>Hello there, how can I help you?</template>
+  </category>
+  <category>
+  <pattern>Hi *</pattern>
+  <template><srai>Hi</srai></template>
+  </category>
+    <category>
+    <pattern>I am *</pattern>
+    <template>Hello <set name="user"><star/></set></template>
+  </category>
+  <category>
+      <pattern>Good Night</pattern>
+      <template>
+         Good Night <get name = "user"/> Thanks for the conversation!
+      </template>  
+   </category>
+  <category>
+    <pattern>what is my wallet</pattern>
+    <template>My Wallet is an android app that keeps track of your money, daily trancsactions, or incomes and expenses</template>
+  </category>
+    <category>
+    <pattern>where can i download this app</pattern>
+    <template>from play store</template>
+  </category>
+     <category>
+      <pattern>what about ios app</pattern>
+      <template>Do you need an ios app</template>  
+   </category>
+   
+   <category>
+      <pattern>yes</pattern>
+      <that>Do you need an ios app</that>
+      <template>Nice, we are working on it</template>
+   </category>
+   
+   <category>
+      <pattern>no</pattern>
+      <that>Do you need an ios app</that>
+      <template>Ok</template>
+   </category> 
+</aiml>
