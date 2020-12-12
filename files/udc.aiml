@@ -1,45 +1,286 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
-  <category>
-    <pattern>Hi</pattern>
-    <template>Hello there, how can I help you?</template>
-  </category>
-  <category>
-  <pattern>Hi *</pattern>
-  <template><srai>Hi</srai></template>
-  </category>
-    <category>
+    
+<category>
+    <pattern>HI</pattern>
+    <template>Hello there Type "Start" to get started
+    </template>
+</category>
+
+<category>
+    <pattern>HI *</pattern>
+    <template><srai>HI</srai></template>
+</category>
+
+<category>
     <pattern>I am *</pattern>
     <template>Hello <set name="user"><star/></set></template>
-  </category>
-  <category>
-      <pattern>Good Night</pattern>
-      <template>
-         Good Night <get name = "user"/> Thanks for the conversation!
-      </template>  
-   </category>
-  <category>
-    <pattern>what is my wallet</pattern>
-    <template>My Wallet is an android app that keeps track of your money, daily trancsactions, or incomes and expenses</template>
-  </category>
+</category>
+
+<category>
+    <pattern>what is your name</pattern>
+    <template>I am lawangeen</template>
+</category>
+
+<category>
+    <pattern>what is your favorite show</pattern>
+    <template>My fav show is Game of Thrones<br/> What is your's</template>
+</category>
+
+<category>
+    <pattern>what is your *</pattern>
+    <template><srai>what is your favorite show</srai></template>
+</category>
+
+<category>
+    <pattern>what is your</pattern>
+    <template>My fav show is Game of Thrones<br/> What is your's</template>
+</category>
+
+<category>
+    <pattern>My favorite show is *</pattern>
+    <template>Good Choice! let's talk about <star></star><think><set name = "show"> <star/></set></think>
+    <set name="topic">tvshow</set>
+    </template>
+</category>
+
+<topic name = "tvshow">
     <category>
-    <pattern>where can i download this app</pattern>
-    <template>from play store</template>
-  </category>
-     <category>
-      <pattern>what about ios app</pattern>
-      <template>Do you need an ios app</template>  
-   </category>
+        <pattern> it's * </pattern>
+        <template>ok, tell me more!</template>
+        </category>
+      
+    <category>
+        <pattern> I LIKE WATCHING *! </pattern>
+        <template>Me too!.</template>
+    </category>
+      
+</topic>
+
+<category>
+    <pattern>*</pattern>
+    <template>
+        <random>
+            <li>So your fav show is <get name="show"></get><br/> tell me more about it</li>
+            <li>how many seasons does <get name="show"></get><br/> have?</li>
+            <li>who are the cast of <get name="show"></get><br/> ?</li>
+        </random>
+    </template>
+</category>
+
+<category>
+    <pattern>SEASONS</pattern>
+    <template>that's great. how many episodes</template>
+</category>  
    
-   <category>
-      <pattern>yes</pattern>
-      <that>Do you need an ios app</that>
-      <template>Nice, we are working on it</template>
-   </category>
+<category>
+    <pattern>_ SEASONS</pattern>
+    <template>
+        <srai>SEASONS</srai>
+    </template>
+</category>
    
-   <category>
-      <pattern>no</pattern>
-      <that>Do you need an ios app</that>
-      <template>Ok</template>
-   </category> 
+<category>
+    <pattern>_ SEASONS</pattern>
+    <template>
+        <srai>SEASONS</srai>
+    </template>
+</category>
+   
+<category>
+    <pattern>SEASONS*</pattern>
+    <template>
+        <srai>SEASONS</srai>
+    </template>
+</category>
+   
+<category>
+    <pattern>_ SEASONS *</pattern>
+    <template>
+        <srai>SEASONS</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>Do you like watching *</pattern>
+      
+    <template>
+        <think><set name = "state"> yes</set></think>
+        <condition name = "state" value = "yes">
+            Yes I like!
+        </condition>
+         
+        <condition name = "state" value = "no">
+            No I don't
+        </condition>
+    </template>
+</category>
+
+<category>
+    <pattern>Good Bye</pattern>
+    <template> Good Bye <get name = "user"/> Thanks for the conversation!</template>  
+</category>
+
+<category>
+    <pattern>START</pattern>
+    <that>Hello there Type "Start" to get started</that>
+    <template>Please select a category by number<br/>
+    1.Comedy<br/>
+    2.Drama<br/>
+    3.Thriller<br/>
+    4.Action<br/>
+    5.Fantasy<br/>
+    6.Crime<br/>
+    7.Mystry<br/>
+    </template>
+</category>
+
+<category>
+    <pattern>1</pattern>
+    <template>List of Comedy Tv shows 2019<br/>
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/17156086/p17156086_b_v8_ab.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt4955642/</url>
+        </button>
+       
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/16621396/p16621396_b_v8_aa.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt5687612/</url>
+        </button>
+       
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/16732475/p16732475_b_v8_ac.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt7971476/</url>
+        </button>
+       
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/17110149/p17110149_b_v8_ac.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt8634332/</url>
+        </button>
+       
+    </template>
+</category>
+
+<category>
+    <pattern>2</pattern>
+    <template>List of Drama Tv shows 2019<br/>
+    
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/17275138/p17275138_b_v8_aa.jpg</image>
+        <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt2442560/</url>
+        </button>
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/14453812/p14453812_b_v8_aa.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt4786824/</url>
+        </button>
+       
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/16868869/p16868869_b_v8_aa.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt3006802/</url>
+        </button>
+       
+        
+    </template>
+</category>
+
+<category>
+    <pattern>3</pattern>
+    <template>List of Thriller Tv shows 2019<br/>
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/17153590/p17153590_b_v8_ab.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt5290382/</url>
+        </button>
+       
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/16944746/p16944746_b_v8_ac.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt2085059/</url>
+        </button>
+       
+        <image></image>
+    </template>
+</category>
+
+<category>
+    <pattern>4</pattern>
+    <template>List of ActionTv shows 2019<br/>
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/15661087/p15661087_b_v8_ab.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt2193021/</url>
+        </button>
+       
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/17057806/p17057806_b_v8_ac.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt3107288/</url>
+        </button>
+       
+    </template>
+</category>
+
+<category>
+    <pattern>5</pattern>
+    <template>List of FantasyTv shows 2019<br/>
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/17021627/p17021627_b_v8_aa.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt0944947/?ref_=fn_al_tt_1</url>
+        </button>
+       
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/16967381/p16967381_b_v8_ac.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt6905542/</url>
+        </button>
+       
+    </template>
+</category>
+
+<category>
+    <pattern>6</pattern>
+    <template>List of CrimeTv shows 2019<br/>
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/17156186/p17156186_b_v8_ac.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt2741602/</url>
+        </button>
+       
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/16718281/p16718281_b_v8_aa.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt2303687/</url>
+        </button>
+       
+    </template>
+</category>
+
+<category>
+    <pattern>7</pattern>
+    <template>List of MystryTv shows 2019<br/>
+        <image>https://images-na.ssl-images-amazon.com/images/M/MV5BMjEzMDAxOTUyMV5BMl5BanBnXkFtZTgwNzAxMzYzOTE@._V1_.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt4574334/</url>
+        </button>
+       
+        <image>http://www.gstatic.com/tv/thumb/tvbanners/16457448/p16457448_b_v8_ab.jpg</image>
+         <button>
+            <text>Learn More</text>
+            <url>https://www.imdb.com/title/tt2661044/</url>
+        </button>
+       
+    </template>
+</category>
+
+
+
 </aiml>
